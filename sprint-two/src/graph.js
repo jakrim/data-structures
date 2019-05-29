@@ -37,3 +37,4 @@ Graph.prototype.forEachNode = function(cb) {
  */
 
 
+// can have connection to any node in system
