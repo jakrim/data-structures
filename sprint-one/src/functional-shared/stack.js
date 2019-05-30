@@ -5,7 +5,7 @@ var Stack = function() {
   instance.storage = {};
   instance.top = 0;
 
-  Object.assign(instance, stackMethods);
+  _.extend(instance, stackMethods);
   return instance;
 };
 

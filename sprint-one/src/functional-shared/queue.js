@@ -7,7 +7,7 @@ var Queue = function() {
   instance.end = 0;
   instance.size = 0;
 
-  Object.assign(instance, queueMethods);
+  _.extend(instance, queueMethods);
   
   return instance;
 };

@@ -19,5 +19,7 @@ treeMethods.contains = function(target) {
 
 
 /*
- * Complexity: What is the time complexity of the above functions?
+* Complexity: What is the time complexity of the above functions?
+//Personal Notes
+Find - is recursive
  */
