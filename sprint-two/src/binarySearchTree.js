@@ -12,26 +12,25 @@ var binarySearchTreeMethods = {};
 
 
 binarySearchTreeMethods.insert = function (value) {
-  // var newNode = BinarySearchTree(value);
+  var newNode = BinarySearchTree(value);
   
-  // var insertNode = function(node, newNode) {
+  var insertNode = function(node, newNode) {
 
-
-
-  // }
+  }
     
-  //   if (this.value > newNode.value) {
-  //     if (newNode.left === null) {
-  //       newNode.left = this;
-  //     }
-  //   }
-  //   if (this.value < newNode.value) {
-  //     if (newNode.right === null) {
-  //       newNode.right = this;
-  //     } else {
-  //       newNode.
+    // if (this.value > newNode.value) {
+    //   if (newNode.left === null) {
+    //     newNode.left = this;
+    //   }
+    // }
+    // if (this.value < newNode.value) {
+    //   if (newNode.right === null) {
+    //     newNode.right = this;
+    //   } 
+    //   else {
+    //     // newNode.
       
-  //   }
+    // }
   //   // console.log('this.left ',this.left);
   //   console.log('newNode ', newNode);
   //   console.log('this ', this);

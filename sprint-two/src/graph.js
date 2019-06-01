@@ -10,9 +10,7 @@ storage = {
   2: {5, true, 3: true}
   3: {2, true}
 }
-
 */
-
 // Instantiate a new graph
 var Graph = function() {
   this.storage = {};
@@ -20,27 +18,27 @@ var Graph = function() {
 
 // Add a node to the graph, passing in the node's value.
 Graph.prototype.addNode = function(node) {
-  
     this.storage[node] = [];
+    console.log('this.storage[node', this.storage[node])
+    console.log('this.storage', this.storage)
+  };
   
-  console.log('storage', this.storage);
-  // console.log('this.storage', this.storage)
-};
+  // Return a boolean value indicating if the value passed to contains is represented in the graph.
+  Graph.prototype.contains = function(node) {
+    if (this.storage.hasOwnProperty(node)) {
+      return true;
+    }
+    return false;
+    
+  };
+  
+  // Removes a node from the graph.
+  Graph.prototype.removeNode = function(node) {
+    delete this.storage[node];
+    
+      
+    
 
-// Return a boolean value indicating if the value passed to contains is represented in the graph.
-Graph.prototype.contains = function(node) {
-  if (this.storage.hasOwnProperty(node)) {
-    return true;
-  }
-};
-
-// Removes a node from the graph.
-Graph.prototype.removeNode = function(node) {
-  // var temp = this.storage[node];
-  // if (this.storage.hasOwnProperty(node)) {
-    //   delete this.storage[node];
-    // }
-    // return temp;
   };
   
   // Returns a boolean indicating whether two specified nodes are connected.  Pass in the values contained in each of the two nodes.
@@ -60,19 +58,17 @@ Graph.prototype.addEdge = function(fromNode, toNode) {
 
 // Remove an edge between any two specified (by value) nodes.
 Graph.prototype.removeEdge = function(fromNode, toNode) {
-  if (this.storage[fromNode].includes[toNode]) {
-    delete this.storage.fromNode[toNode];
-    delete this.storage.toNode[fromNode];
-  }
-  if (this.storage[toNode].includes[fromNode]) {
-    delete this.storage.fromNode[toNode];
-    delete this.storage.toNode[fromNode];
-  }
+  if (this.storage[fromNode].includes(toNode) && this.storage[toNode].includes(fromNode)) {
+    this.storage[toNode].splice(this.storage[toNode].indexOf(fromNode), 1)
+    this.storage[fromNode].splice(this.storage[fromNode].indexOf(toNode), 1)
+    }
 };
 
 // Pass in a callback which will be executed on each node of the graph.
 Graph.prototype.forEachNode = function(cb) {
-
+  for (let key in this.storage) {
+    cb(key);
+  };
 };
 
 /*

@@ -1,5 +1,3 @@
-
-
 var HashTable = function() {
   this._limit = 8;
   // Storage mechanism = array
