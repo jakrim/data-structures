@@ -19,8 +19,6 @@ var Graph = function() {
 // Add a node to the graph, passing in the node's value.
 Graph.prototype.addNode = function(node) {
     this.storage[node] = [];
-    console.log('this.storage[node', this.storage[node])
-    console.log('this.storage', this.storage)
   };
   
   // Return a boolean value indicating if the value passed to contains is represented in the graph.
@@ -34,41 +32,43 @@ Graph.prototype.addNode = function(node) {
   
   // Removes a node from the graph.
   Graph.prototype.removeNode = function(node) {
-    delete this.storage[node];
-    
-      
-    
-
+    delete this.storage[node];  
   };
   
   // Returns a boolean indicating whether two specified nodes are connected.  Pass in the values contained in each of the two nodes.
   Graph.prototype.hasEdge = function(fromNode, toNode) {
-    // this.storage[fromNode] - this.storage[toNode] ? true : false;
-    if (this.storage[fromNode].includes(toNode) && this.storage[toNode].includes(fromNode)) {
-      return true;
+    if (this.storage[fromNode] !== undefined && this.storage[toNode] !== undefined) {
+      if (this.storage[fromNode].includes(toNode) && this.storage[toNode].includes(fromNode)) {
+        return true;
+      }
+      return false;
     }
     return false;
 };
 
 // Connects two nodes in a graph by adding an edge between them.
 Graph.prototype.addEdge = function(fromNode, toNode) {
-  this.storage[fromNode].push(toNode);
-  this.storage[toNode].push(fromNode);
+    this.storage[fromNode].push(toNode);
+    this.storage[toNode].push(+fromNode);
+
+    // COERSING FROMNODE FROM TYPE STRING TO NUMBER - WHY IS IT A STRING
+
+    //
+  
 };
 
 // Remove an edge between any two specified (by value) nodes.
 Graph.prototype.removeEdge = function(fromNode, toNode) {
-  if (this.storage[fromNode].includes(toNode) && this.storage[toNode].includes(fromNode)) {
-    this.storage[toNode].splice(this.storage[toNode].indexOf(fromNode), 1)
-    this.storage[fromNode].splice(this.storage[fromNode].indexOf(toNode), 1)
-    }
+  this.storage[toNode].splice(this.storage[toNode].indexOf(fromNode), 1)
+  this.storage[fromNode].splice(this.storage[fromNode].indexOf(toNode), 1)
 };
 
 // Pass in a callback which will be executed on each node of the graph.
 Graph.prototype.forEachNode = function(cb) {
-  for (let key in this.storage) {
-    cb(key);
+  for (let item in this.storage) {
+      cb(item)
   };
+
 };
 
 /*
