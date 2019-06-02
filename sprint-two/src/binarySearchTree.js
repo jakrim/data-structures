@@ -33,49 +33,33 @@ binarySearchTreeMethods.insert = function (value) {
 
 
 binarySearchTreeMethods.contains = function (target) {
-
-  var node = BinarySearchTree(value);
-
-  if (node = target) {
+// How to know if the BST contains a target (value)
+  
+// Basecase - if this.root = target
+  if (this.value === target) {
     return true;
-  } else if (node > target) {
-    node.left.contains(node);
-    } else {
-      node.right.contains(node);
+  }
+
+  if (this.left) {
+    if (this.left.contains(target)) {
+      return true;
     }
   }
-  // var result = false;
 
-  // var checkNode = function (node) {
+  if (this.right) {
+    if (this.right.contains(target)) {
+      return true;
+    }
+  }
 
-  //   if (node.value = target) {
-  //     return true;
-  //   } else {
-  //     if (node.right !== null) {
-  //       checkNode(node.right);
-  //     } else {
-  //       checkNode(node.left);
-  //     }
-  //   }
-
-
-
-  // }
-  // checkNode(this)
-  // return result;
+  return false;
+}
 
 
 
 binarySearchTreeMethods.depthFirstLog = function (callback) {
 
 
-  // var executeCB = function(node) {
-  //   callback(this.value);
-
-
-  // }
-
-  // executeCB(this);
 
 }
 
@@ -83,7 +67,11 @@ var tree = BinarySearchTree(5);
 tree.insert(2)
 tree.insert(3)
 tree.insert(7)
-tree.insert(6)
+var array = [];
+func = function(value) { array.push(value); };
+tree.depthFirstLog(func)
+
+
 // depth first search - manner - like GetELementsByClassName - children first
 // How to keep track of depth as traversal? Track - increment vs. decrement
 
