@@ -1,57 +1,76 @@
 var BinarySearchTree = function(value) {
-    var tree = Object.create(binarySearchTreeMethods);
-    tree.root = value;
-    tree.left = null;
-    tree.right = null;
-
-    return tree;
+  var tree = {};
+  tree.value = value;
+  tree.left = null;
+  tree.right = null;
+  
+  Object.assign(tree, binarySearchTreeMethods);
+  return tree;
 };
 
 var binarySearchTreeMethods = {};
 
 
 binarySearchTreeMethods.insert = function (value) {
-// console.log('this', this.root);
-// console.log('value', value);
-var node = BinarySearchTree(value);
-// node
-var thisNode = this;
-console.log('node outside',node);
-console.log('thisNode outside',thisNode)
-// console.log('thisNode', thisNode);
-// console.log('node', node.root);
-  var insertNode = function(node) {
-    // is tree's root > newNode
-    // if (thisNode.left === null & thisNode.right === null) {
-    if (thisNode.root > node.root) { 
-      thisNode.left = node;
-      console.log('node INSIDE',node);
-      console.log('thisNode INSIDE',thisNode.left)
-    } else if (thisNode.root < node.root) {
-      thisNode.right = node;
+
+  var node = BinarySearchTree(value);
+
+    if (this.value > value) {
+      if (this.left === null) {
+        this.left = node;
+      } else {
+        this.left.insert(value);
+      } 
+    } else if (this.value < value) {
+      if (this.right === null) {
+        // console.log('this.right', this);
+        this.right = node;
+      } else {
+        this.right.insert(value);
     }
-
   }
-  insertNode(node);
 }
 
-binarySearchTreeMethods.contains = function () {
 
-  var result;
+binarySearchTreeMethods.contains = function (target) {
 
-  var checkNode = function () {
+  var node = BinarySearchTree(value);
 
+  if (node = target) {
+    return true;
+  } else if (node > target) {
+    node.left.contains(node);
+    } else {
+      node.right.contains(node);
+    }
   }
-  checkNode(this)
-  return result;
-}
+  // var result = false;
+
+  // var checkNode = function (node) {
+
+  //   if (node.value = target) {
+  //     return true;
+  //   } else {
+  //     if (node.right !== null) {
+  //       checkNode(node.right);
+  //     } else {
+  //       checkNode(node.left);
+  //     }
+  //   }
+
+
+
+  // }
+  // checkNode(this)
+  // return result;
+
 
 
 binarySearchTreeMethods.depthFirstLog = function (callback) {
 
 
-  // var executeCB = function() {
-
+  // var executeCB = function(node) {
+  //   callback(this.value);
 
 
   // }
@@ -59,6 +78,12 @@ binarySearchTreeMethods.depthFirstLog = function (callback) {
   // executeCB(this);
 
 }
+
+var tree = BinarySearchTree(5);
+tree.insert(2)
+tree.insert(3)
+tree.insert(7)
+tree.insert(6)
 // depth first search - manner - like GetELementsByClassName - children first
 // How to keep track of depth as traversal? Track - increment vs. decrement
 
