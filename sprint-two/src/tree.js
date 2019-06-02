@@ -58,10 +58,12 @@ treeMethods.contains = function(target) {
 
 /*
 * Complexity: What is the time complexity of the above functions?
-//Personal Notes
-contains - is recursive
- */
+ treeMethods.addChild - Constant Time O(1)
+ treeMethods.contains - Linear TIme O(n)
+*/
 
+//Personal Notes
+// contains - is recursive
 //  var testTree = new Tree(4);
 //  testTree.addChild(5);
 //  testTree.addChild(8);

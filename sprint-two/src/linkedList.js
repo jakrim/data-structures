@@ -4,23 +4,15 @@ var LinkedList = function() {
   list.tail = null;// tail points to last node
 
   list.addToTail = function(value) {  // LOOK AT HOW TREE CREATED NEW TREE
-    // create new node
+
     var newNode = Node(value);
-    // if head is null
+
     if (list.head === null) {
       list.head = newNode;
       list.tail = newNode;
     }
       list.tail.next = newNode;
       list.tail = newNode;
-      
-    // adjust tailNode's last reference
-    // list.tail.next = newNode;
-    
-    // list.tail.next = newNode;
-    // adjust tail reference to refer to new value
-
-    // list.tail = newNode;
   };
 
   list.removeHead = function() {
@@ -58,15 +50,12 @@ var Node = function(value) {
   return node;
 };
 
-var newList = LinkedList(3);
-newList.addToTail(3);
-newList.addToTail(6);
-newList.addToTail(9);
-newList.removeHead();
-newList.contains(6);
 
 /*
  * Complexity: What is the time complexity of the above functions?
+ list.addToTail - Constant time O(1)
+ list.removeHead - Constant time O(1)
+ list.contains - Linear (traversal of list) O(n)
  */
 // Value and Pointer to another node
 

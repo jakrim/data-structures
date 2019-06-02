@@ -73,6 +73,13 @@ Graph.prototype.forEachNode = function(cb) {
 
 /*
  * Complexity: What is the time complexity of the above functions?
+ Graph.prototype.addNode - constant time O(1)
+ Graph.prototype.contains - Constant time O(1)
+ Graph.prototype.removeNode - Constant time O(1)
+ Graph.prototype.hasEdge - Constant time O(1)
+ Graph.prototype.addEdge - Constant time O(1)
+ Graph.prototype.removeEdge - Linear Time O(n)
+ Graph.prototype.forEachNode - Linear Time O(n)
  */
 // can have connection to any node in system
 // GRAPH has nodes and edges that connect nodes

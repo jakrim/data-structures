@@ -28,5 +28,8 @@ setPrototype.remove = function(item) {
 
 /*
  * Complexity: What is the time complexity of the above functions?
+ setPrototype.add - Constant time O(1)
+ setPrototype.contains - Constant time O(1)
+ setPrototype.remove - Constant time O(1)
  */
 // unique to set

@@ -1,47 +1,62 @@
 var BinarySearchTree = function(value) {
-    var binarySearchTree = Object.create(binarySearchTreeMethods);
-    binarySearchTree.value = value;
-    binarySearchTree.left = null;
-    binarySearchTree.right = null;
-    
-    return binarySearchTree;
+    var tree = Object.create(binarySearchTreeMethods);
+    tree.root = value;
+    tree.left = null;
+    tree.right = null;
 
+    return tree;
 };
 
 var binarySearchTreeMethods = {};
 
 
 binarySearchTreeMethods.insert = function (value) {
-  var newNode = BinarySearchTree(value);
-  
-  var insertNode = function(node, newNode) {
+// console.log('this', this.root);
+// console.log('value', value);
+var node = BinarySearchTree(value);
+// node
+var thisNode = this;
+console.log('node outside',node);
+console.log('thisNode outside',thisNode)
+// console.log('thisNode', thisNode);
+// console.log('node', node.root);
+  var insertNode = function(node) {
+    // is tree's root > newNode
+    // if (thisNode.left === null & thisNode.right === null) {
+    if (thisNode.root > node.root) { 
+      thisNode.left = node;
+      console.log('node INSIDE',node);
+      console.log('thisNode INSIDE',thisNode.left)
+    } else if (thisNode.root < node.root) {
+      thisNode.right = node;
+    }
 
   }
-    
-    // if (this.value > newNode.value) {
-    //   if (newNode.left === null) {
-    //     newNode.left = this;
-    //   }
-    // }
-    // if (this.value < newNode.value) {
-    //   if (newNode.right === null) {
-    //     newNode.right = this;
-    //   } 
-    //   else {
-    //     // newNode.
-      
-    // }
-  //   // console.log('this.left ',this.left);
-  //   console.log('newNode ', newNode);
-  //   console.log('this ', this);
+  insertNode(node);
 }
 
 binarySearchTreeMethods.contains = function () {
 
+  var result;
+
+  var checkNode = function () {
+
+  }
+  checkNode(this)
+  return result;
 }
 
 
-binarySearchTreeMethods.depthFirstLog = function () {
+binarySearchTreeMethods.depthFirstLog = function (callback) {
+
+
+  // var executeCB = function() {
+
+
+
+  // }
+
+  // executeCB(this);
 
 }
 // depth first search - manner - like GetELementsByClassName - children first
@@ -53,6 +68,11 @@ binarySearchTreeMethods.depthFirstLog = function () {
 
 /*
  * Complexity: What is the time complexity of the above functions?
+binarySearchTreeMethods.insert - linear O(n)
+binarySearchTreeMethods.contains - Logrithmic O(log n)
+binarySearchTreeMethods.depthfirstlog - Logrithmic O(log n)
+
+
  */
 // only has access to it's touching node
 
