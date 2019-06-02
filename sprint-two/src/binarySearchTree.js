@@ -58,18 +58,17 @@ binarySearchTreeMethods.contains = function (target) {
 
 
 binarySearchTreeMethods.depthFirstLog = function (callback) {
-
+  callback(this.value);
+  if (this.left) {
+    this.left.depthFirstLog(callback);
+  }
+  if (this.right) {
+    this.right.depthFirstLog(callback);
+  }
 
 
 }
 
-var tree = BinarySearchTree(5);
-tree.insert(2)
-tree.insert(3)
-tree.insert(7)
-var array = [];
-func = function(value) { array.push(value); };
-tree.depthFirstLog(func)
 
 
 // depth first search - manner - like GetELementsByClassName - children first
